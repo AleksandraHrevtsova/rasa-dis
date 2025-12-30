@@ -11,6 +11,9 @@ export default function getLayout() {
     brand: 'rasa',
     logo: assets.logo,
 
+    sidebarWidth: '250px',
+    sidebarHeight: '100hv',
+
     iconSize: 32,
     fontSize: '18px',
     padding: 100,
