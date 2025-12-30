@@ -1,0 +1,15 @@
+{
+  "name": "Rasa Web App",
+  "short_name": "Rasa",
+  "description": "Web version of Rasa",
+  "icons": [{
+    "src": "images/apple-touch-icon.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }],
+  "prefer_related_applications": false,
+  "theme_color": "#6c9a00",
+  "background_color": "#6c9a00",
+  "display": "standalone",
+  "brand": "rasa"
+}
