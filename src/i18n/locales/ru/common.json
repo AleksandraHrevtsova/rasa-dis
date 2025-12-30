@@ -1,0 +1,17 @@
+{
+  "ru": "ру",
+  "uk": "укр",
+  "home": "Главная",
+  "orders": "Заказы",
+  "log_in": "Авторизация",
+  "payments": "Оплаты",
+  "app_version": "Версия",
+
+  "order_number": "№", 
+  "delivery_date": "Дата",
+  "status": "Статус", 
+  "place": "Город", 
+  "total_weight": "Общий вес (нетто)",
+
+  "edit_order_page": "Редактирование заказа"
+}

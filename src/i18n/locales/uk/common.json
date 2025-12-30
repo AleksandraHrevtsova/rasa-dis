@@ -1,0 +1,17 @@
+{
+  "ru": "ру",
+  "uk": "укр",
+  "home": "Головна",
+  "orders": "Замовлення",
+  "log_in": "Авторизація",
+  "payments": "Оплати",
+  "app_version": "Версія",
+
+  "order_number": "№", 
+  "delivery_date": "Дата",
+  "status": "Статус", 
+  "place": "Місто", 
+  "total_weight": "Загальна вага (нетто)",
+
+  "edit_order_page": "Редагування замовлення"
+}
