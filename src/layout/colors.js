@@ -33,6 +33,9 @@ export default function getColors() {
     sidebarBg: colors.mainGreen,
     sidebarColor: colors.white,
 
+    // header
+    headerBg: colors.mainGreen,
+
     // menu
     menuBtnBg: colors.mainGreen,
     

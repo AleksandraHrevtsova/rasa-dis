@@ -163,8 +163,6 @@ const LeftSidebar = (props) => {
           <MenuButton 
             type={menuBtnTypes.close}
             handleClick={props.setSidebarOpen}
-            colors={colors} 
-            layout={layout}
           />
         </LogoContainer>
         <StyledMenuContainer>
