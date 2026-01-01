@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RU_LANG_CODE, UK_LANG_CODE } from '../i18n';
+import { RU_LANG_CODE, UA_LANG_CODE } from '../i18n';
 import styled from 'styled-components';
 import { LanguageButton } from './Buttons';
 
@@ -26,7 +26,7 @@ export const LanguageToggle = (props) => {
   };
 
   const isRuLangSelected = useMemo(() => selectedLang === RU_LANG_CODE, [selectedLang]);
-  const isUkLangSelected = useMemo(() => selectedLang === UK_LANG_CODE, [selectedLang]);
+  const isUkLangSelected = useMemo(() => selectedLang === UA_LANG_CODE, [selectedLang]);
 
   return (
     <StyledContainer>
@@ -39,8 +39,8 @@ export const LanguageToggle = (props) => {
       <LanguageButton
         {...props}
         isSelected={isUkLangSelected}
-        label={UK_LANG_CODE}
-        handleClick={() => switchLanguage(UK_LANG_CODE)}
+        label={UA_LANG_CODE}
+        handleClick={() => switchLanguage(UA_LANG_CODE)}
       />
     </StyledContainer>
   );
