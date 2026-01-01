@@ -37,11 +37,9 @@ const withLeftSideBar = (Component) => {
     return (
       <Sidebar
         sidebar={<LeftSidebar setSidebarOpen={() => {
-          console.log('Hide sidebar');
           setSidebarOpen(!sidebarOpen);
         }}/>}
         open={sidebarOpen}
-        // onSetOpen={setSidebarOpen}
         styles={sideBarStyles}
       >
         <MainContent $backgroundcolor={colors.pageBg}>
