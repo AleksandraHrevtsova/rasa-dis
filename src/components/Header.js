@@ -1,6 +1,12 @@
+import { useContext } from "react";
+import { ThemeContext } from '../contexts/ThemeContext';
+import FunctionsContext from "../contexts/FunctionsContext";
+
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { MenuButton } from './Buttons';
 import { menuBtnTypes } from '../utils/buttonTypes';
+import { BackButton } from "../components/Buttons";
 
 const HeaderContainer = styled.div`
   flex: 0 1 auto;
@@ -17,13 +23,21 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderContent = styled.div`
+  display: flex;
+  align-items: center;
   flex: 1 1 auto;
   padding-left: ${({ $sidebarOpen }) => $sidebarOpen ? '250px' : 0};
   color: ${({ color }) => color};
 `;
 
-export const Header = (props) => {
+const StyledPageTitle = styled.h2`
+  color: white;
+`;
 
+export const Header = (props) => {
+  const { colors, layout } = useContext(ThemeContext);
+  const { t } = useTranslation();
+  const { goBack } = useContext(FunctionsContext);
   return (
     <HeaderContainer 
       $borderColor={props.colors.borderColor}
@@ -34,6 +48,17 @@ export const Header = (props) => {
         handleClick={props.toggleSideBar}
       />
       <HeaderContent $sidebarOpen={props.sidebarOpen}>
+        {props.isBack && (
+          <BackButton
+            label={t('back')}
+            handleClick={goBack}
+            colors={colors}
+            layout={layout}
+          />
+        )}
+        {props.pagetitle && (
+          <StyledPageTitle>{props.pagetitle}</StyledPageTitle>
+        )}
         {props.children}
       </HeaderContent>
     </HeaderContainer>

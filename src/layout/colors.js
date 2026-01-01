@@ -23,7 +23,9 @@ const colors = {
   lightGrey: '#f4f6f1',
   lightBorderGrey: '#dee1e6',
   lightOlive: '#f7f9f2',
-  coldGrey :'#eef1f4',
+  coldGrey: '#eef1f4',
+
+  warnColor: 'orange'
 };
 
 export default function getColors() {
@@ -44,7 +46,8 @@ export default function getColors() {
     btnBgHover: colors.secondaryGreen,
     iconWhite: colors.white,
     iconGreen: colors.mainGreen,
-    pageBg: colors.white,
+    iconWarn: colors.warnColor,
+    pageBg: colors.lightGrey,
     pageTitleColor: colors.mainGreen,
     borderColor: colors.lightBorderGrey,
   };

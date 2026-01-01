@@ -174,7 +174,7 @@ const LeftSidebar = (props) => {
         <StyledVersionLabel>{t('app_version')}: {appVersion}</StyledVersionLabel>
       </Sidebar>
     );
-  }, [appVersion, colors, layout, menuItems, currentPath, logoName, t]);
+  }, [appVersion, colors, layout, menuItems, currentPath, logoName, t, props.setSidebarOpen]);
 };
 
 export default LeftSidebar;
