@@ -6,7 +6,7 @@ import { ThemeContext } from '../contexts/ThemeContext';
 
 import withLeftSideBar from '../hocs/withLeftSideBar';
 import TableComponent from "../components/Table";
-import { StyledPageContainer, StyledPageContent } from './basicStyledComponents';
+import { StyledPageContainer, StyledPageContent } from '../components/basicStyledComponents';
 import { Header } from '../components/Header';
 
 const data = [
@@ -57,7 +57,7 @@ const Orders = (props) => {
   // };
 
   return (
-    <StyledPageContainer>
+    <StyledPageContainer $pageBg={colors.pageBg}>
       <Header
         {...props}
         colors={colors}

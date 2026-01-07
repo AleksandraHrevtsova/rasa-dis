@@ -5,7 +5,7 @@ import { ThemeContext } from '../contexts/ThemeContext';
 
 import withLeftSideBar from '../hocs/withLeftSideBar';
 
-import { StyledPageContainer, StyledPageContent } from './basicStyledComponents';
+import { StyledPageContainer, StyledPageContent } from '../components/basicStyledComponents';
 import { Header } from '../components/Header';
 
 const Payments = (props) => {
@@ -13,7 +13,7 @@ const Payments = (props) => {
   const { t } = useTranslation();
 
   return (
-    <StyledPageContainer>
+    <StyledPageContainer $pageBg={colors.pageBg}>
       <Header
         {...props}
         colors={colors}
