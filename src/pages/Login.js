@@ -76,7 +76,8 @@ const Login = () => {
   const [emailValid, setEmailValid] = useState(false);
   const [passwordValid, setPasswordValid] = useState(false);
 
-  const [ errors, setErrors ] = useState({ form: 'Якась помилка'});
+  // const [ errors, setErrors ] = useState({ form: 'Якась помилка'});
+  const [ errors, setErrors ] = useState({});
   const isCanSubmit = emailValid && passwordValid;
 
   const handleSubmit = async () => {
