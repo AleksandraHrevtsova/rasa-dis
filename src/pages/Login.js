@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { login } from "../utils/login";
 import { useTranslation } from 'react-i18next';
 
+import { useNotify } from '../hooks/useNotify';
+
 import { StyledPageContainer, StyledBlockContainer} from '../components/basicStyledComponents';
 import { AuthField } from '../components/AuthField';
 
@@ -52,14 +54,10 @@ const StyledAuthTitle = styled.h2`
   text-align: center;
 `;
 
-const StyledError = styled.span`
-  color: ${({ $color}) => $color};
-  text-align: center;
-  font-weight: 500;
-`;
-
 const Login = () => {
   const { colors, layout } = useContext(ThemeContext);
+
+  const notify = useNotify();
 
   const { t } = useTranslation();
 
@@ -76,8 +74,8 @@ const Login = () => {
   const [emailValid, setEmailValid] = useState(false);
   const [passwordValid, setPasswordValid] = useState(false);
 
-  // const [ errors, setErrors ] = useState({ form: 'Якась помилка'});
-  const [ errors, setErrors ] = useState({});
+  const [ errors, setErrors ] = useState({ form: 'Якась помилка'});
+  // const [ errors, setErrors ] = useState({});
   const isCanSubmit = emailValid && passwordValid;
 
   const handleSubmit = async () => {
@@ -88,6 +86,7 @@ const Login = () => {
     const { error } = await login(email, password);
     if (error) {
       setErrors({ [error.field]: t(error.message)});
+      notify.error(error.message);
       return;
     }
 
@@ -131,10 +130,7 @@ const Login = () => {
           }}
           error={errors.input}
         />
-
-
-        {errors.form && <StyledError $color={colors.errColor}>{errors.form}</StyledError>}
-
+        
         <TextButton
           label={t('login_click')}
           handleClick={handleSubmit}

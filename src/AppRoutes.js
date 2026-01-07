@@ -1,5 +1,6 @@
-import { Routes, Route, useLocation, useNavigate } from 'react-router';
 import { useCallback, useMemo, useState } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router';
+import { Toaster } from 'sonner';
 
 import AppContext from './contexts/AppContext';
 import FunctionsContext from './contexts/FunctionsContext';
@@ -47,6 +48,7 @@ export default function AppRoutes() {
   return (
     <AppContext.Provider value={memoContext}>
       <FunctionsContext.Provider value={memoFunctionsContext}>
+        <Toaster position="top-right" />
         <Routes>
 
           <Route path="/login" element={<Login />} />

@@ -1,21 +1,15 @@
 const colors = {
-  // Navigation
-  mainGreen: '#6c9a00',   // mainGreen
-  sidebarHover: '#5f8700',
-  sidebarActive: '#567a00',
-  sidebarText: '#ffffff',
-
-  // Primary actions
-  secondaryGreen: '#9cb60f',   // secondaryGreen
-  primaryHover: '#8ca30d',
-  primaryActive: '#7b8f0b',
-  primaryText: 'red', // '#ffffff',
-
-  // Page & surfaces
+  // common colors
   white: '#ffffff',
-  cardBg: '#ffffff',
-  border: '#e2e6da',
-
+  black: '#000000',
+  // primary colors
+  brand: '#6c9a00', // main brand color
+  error: '#c62828',
+  warning: '#e6a800',
+  // secondary colors
+  secondaryBrand: '#9cb60f', // secondary brand color
+  secondaryError: '#b71c1c',
+  secondaryWarning: '#d4b106',
   // Text
   textPrimary: '#2F3A1F',
   textSecondary: '#5F6F4A',
@@ -26,35 +20,45 @@ const colors = {
   lightBorderGrey: '#dee1e6',
   lightOlive: '#f7f9f2',
   coldGrey: '#eef1f4',
+  // Navigation
+  sidebarHover: '#5f8700',
+  sidebarActive: '#567a00',
 
-  warnColor: '#E6A800',
-  warnSoft: '#D4B106',
-  errColor: '#C62828',
-  errSoft: '#B71C1C'
+  // Primary actions
+  primaryHover: '#8ca30d',
+  primaryActive: '#7b8f0b',
+
+  // Page & surfaces
+  border: '#e2e6da',
+
 };
 
 export default function getColors() {
   return { 
-    ...colors,
+    // ...colors,
+    border: colors.border,
     // sidebar
-    sidebarBg: colors.mainGreen,
+    sidebarBg: colors.brand,
     sidebarColor: colors.white,
 
     // header
-    headerBg: colors.mainGreen,
+    headerBg: colors.brand,
 
     // menu
-    menuBtnBg: colors.mainGreen,
+    menuBtnBg: colors.brand,
     
     // common
-    hovercolor: colors.secondaryGreen,
-    btnBgHover: colors.secondaryGreen,
+    hovercolor: colors.secondaryBrand,
+    btnBgHover: colors.secondaryBrand,
     iconWhite: colors.white,
-    iconGreen: colors.mainGreen,
-    iconWarn: colors.warnColor,
-    iconErr: colors.errColor,
+    iconGreen: colors.brand,
+
+    success: colors.brand,
+    warning: colors.warning,
+    error: colors.error,
+
     pageBg: colors.lightGrey,
-    pageTitleColor: colors.mainGreen,
+    pageTitleColor: colors.brand,
     borderColor: colors.lightBorderGrey,
   };
 }

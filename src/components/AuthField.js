@@ -43,9 +43,9 @@ export const AuthField = ({ label, placeholder, type = 'text', value = '', onCha
   }, [touched, error, warning, isValid]);
 
   const iconColor = useMemo(() => {
-    if (error) return colors.iconErr;
-    if (warning) return colors.iconWarn;
-    if (isValid) return colors.iconGreen;
+    if (error) return colors.error;
+    if (warning) return colors.warning;
+    if (isValid) return colors.success;
     return null;
   }, [error, warning, isValid, colors]);
 
