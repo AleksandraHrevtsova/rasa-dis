@@ -14,11 +14,14 @@ const basicStyles = css`
   transition: ${({ $transition }) => $transition};
   text-shadow: 0px 0px 0px transparent;
   box-shadow: 0px 0px 0px transparent;
+  cursor: ${({ disabled }) => disabled && 'no-drop'};
 
   &:hover {
-    background: ${({ $btnBgHover }) => $btnBgHover || 'transparent'};
+    cursor: ${({ disabled }) => disabled && 'no-drop'};
+
+    background: ${({ disabled, $btnBgHover }) => !disabled && ($btnBgHover || 'transparent')};
     box-shadow: 0px 0px 0px transparent;
-    border: 0px solid transparent;
+    border: 2px solid transparent;
     text-shadow: 0px 0px 0px transparent;
   }
 `;
@@ -27,7 +30,7 @@ const StyledIconButton = styled.button`
   ${basicStyles};
   
   padding: 6px;
-  border: 0px solid transparent;
+  border: 2px solid transparent;
   color: ${({ $labelColor }) => $labelColor};
   background: ${({ $btnBg }) => $btnBg || 'transparent'};
 `;
@@ -63,7 +66,7 @@ const StyledLangButton = styled.button`
   text-transform: uppercase;
 
   padding: 10px;
-  border: 2px solid white;
+  border: 2px solid ${({ disabled }) => disabled ? 'transparent' : 'white'};
   color: ${({ $isSelected, $btnBg, $btnColor }) => $isSelected ? $btnBg : $btnColor};
   background: ${({ $isSelected, $btnBg, $btnColor }) => $isSelected ? $btnColor : $btnBg};
 `;
@@ -86,7 +89,25 @@ export const LanguageButton = ({ label, isSelected, handleClick, colors, layout 
   );
 };
 
-export const BackButton = ({ label, isSelected, handleClick, colors, layout }) => {
+export const TextButton = ({ label, handleClick, colors, layout, isDisable }) => {
+  return (
+    <StyledLangButton 
+      $btnBg={colors.sidebarBg}
+      $btnColor={colors.sidebarColor}
+
+      $btnBgHover={colors.btnBgHover}
+      $borderRadius={layout.borderRadius}
+      $transition={layout.hoverTransition}
+
+      onClick={handleClick}
+      disabled={isDisable}
+    >
+      {label}
+    </StyledLangButton>
+  );
+};
+
+export const LogoutButton = ({ label, isSelected, handleClick, colors, layout }) => {
   return (
     <StyledLangButton 
       $isSelected={isSelected}

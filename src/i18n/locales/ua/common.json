@@ -4,6 +4,7 @@
   "home": "Головна",
   "orders": "Замовлення",
   "log_in": "Авторизація",
+  "log_out": "Вийти",
   "payments": "Оплати",
   "app_version": "Версія",
 
@@ -13,5 +14,17 @@
   "place": "Місто", 
   "total_weight": "Загальна вага (нетто)",
 
-  "edit_order_page": "Редагування замовлення"
+  "edit_order_page": "Редагування замовлення",
+  
+  "email_label": "Электронна адреса",
+  "password_label": "Пароль",
+  "email_invalid": "Введіть email, за яким Ви зареєстровані",
+  "password_invalid": "Пароль має містити 6 та більше символів",
+  "login_click": "Увійти",
+
+  "invalid_credentials": "Невірний email або пароль",
+  "too_many_requests": "Спробуйте пізніше",
+  "network-network_error-failed": "Помилка Мережі: перевірте підключення.",
+  "user_not_found": "Користувач з таким email не знайдений",
+  "authorization_error": "Помилка авторизації"
 }

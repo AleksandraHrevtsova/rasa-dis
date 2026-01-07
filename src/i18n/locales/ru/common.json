@@ -4,6 +4,7 @@
   "home": "Главная",
   "orders": "Заказы",
   "log_in": "Авторизация",
+  "log_out": "Выйти",
   "payments": "Оплаты",
   "app_version": "Версия",
 
@@ -13,5 +14,16 @@
   "place": "Город", 
   "total_weight": "Общий вес (нетто)",
 
-  "edit_order_page": "Редактирование заказа"
+  "edit_order_page": "Редактирование заказа",
+  "email_label": "Электронный адрес",
+  "password_label": "Пароль",
+  "email_invalid": "Введите корректный email",
+  "password_invalid": "Пароль должен быть не менее 6 символов",
+  "login_click": "Войти",
+
+  "invalid_credentials": "Неверный email или пароль",
+  "too_many_requests": "Слишком много попыток. Попробуйте позже",
+  "network_error": "Ошибка сети. Проверьте подключение",
+  "user_not_found": "Пользователь с таким email не найден",
+  "authorization_error": "Ошибка авторизации"
 }

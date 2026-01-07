@@ -11,6 +11,7 @@ import { routesData } from '../utils/routesMap';
 import { manifest } from '../Manifest';
 
 import { LanguageToggle } from './LanguageToggle';
+import { Logout } from './Logout';
 import { Icon } from './Icon';
 
 import { MenuButton } from './Buttons';
@@ -171,6 +172,7 @@ const LeftSidebar = (props) => {
           )}
         </StyledMenuContainer>
         <LanguageToggle colors={colors} layout={layout}/>
+        <Logout colors={colors} layout={layout}/>
         <StyledVersionLabel>{t('app_version')}: {appVersion}</StyledVersionLabel>
       </Sidebar>
     );

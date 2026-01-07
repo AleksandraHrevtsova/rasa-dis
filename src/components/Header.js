@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { MenuButton } from './Buttons';
 import { menuBtnTypes } from '../utils/buttonTypes';
-import { BackButton } from "../components/Buttons";
+import { TextButton } from "../components/Buttons";
 
 const HeaderContainer = styled.div`
   flex: 0 1 auto;
@@ -49,7 +49,7 @@ export const Header = (props) => {
       />
       <HeaderContent $sidebarOpen={props.sidebarOpen}>
         {props.isBack && (
-          <BackButton
+          <TextButton
             label={t('back')}
             handleClick={goBack}
             colors={colors}

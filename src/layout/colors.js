@@ -17,15 +17,20 @@ const colors = {
   border: '#e2e6da',
 
   // Text
-  textPrimary: '#1f2937',
-  textSecondary: '#4b5563',
+  textPrimary: '#2F3A1F',
+  textSecondary: '#5F6F4A',
+  textInput: '#1F2933',
+  textPlaceholder: '#9AA38B',
   textMuted: '#6b7280',
   lightGrey: '#f4f6f1',
   lightBorderGrey: '#dee1e6',
   lightOlive: '#f7f9f2',
   coldGrey: '#eef1f4',
 
-  warnColor: 'orange'
+  warnColor: '#E6A800',
+  warnSoft: '#D4B106',
+  errColor: '#C62828',
+  errSoft: '#B71C1C'
 };
 
 export default function getColors() {
@@ -47,6 +52,7 @@ export default function getColors() {
     iconWhite: colors.white,
     iconGreen: colors.mainGreen,
     iconWarn: colors.warnColor,
+    iconErr: colors.errColor,
     pageBg: colors.lightGrey,
     pageTitleColor: colors.mainGreen,
     borderColor: colors.lightBorderGrey,

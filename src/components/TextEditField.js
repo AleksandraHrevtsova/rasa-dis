@@ -4,38 +4,17 @@ import { Icon } from "./Icon";
 
 import styled from 'styled-components';
 
-const StyledBlockContainer = styled.div`
-  border-top: 4px solid ${({$markColor}) => $markColor};
-  border-radius: 6px;
-  background-color: white;
-  width: 50%;
-  max-width: 600px;
-  padding: 10px;
-  margin-bottom: 20px;
-`;
-
-const StyledLabel = styled.label`
-  font-weight: 500;
-`;
-
-const StyledInputBlock = styled.div`
-  border-bottom: 1px solid;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 4px;
-`;
+import { 
+  StyledBlockContainer, 
+  StyledLabel, 
+  StyledInputBlock, 
+  StyledInput
+} from './basicStyledComponents';
 
 const StyledInputButton = styled.button`
   background-color: transparent;
   border: none;
   padding: 4px;
-`;
-
-const StyledInput = styled.input`
-  padding: 6px 4px;
-  width: 100%;
-  border: none;
-  border-right: 1px solid grey;
 `;
 
 export const TextEditField = ({ label, value, handleClick }) => {
@@ -103,7 +82,7 @@ export const RequisitesBlock = ({ label, requisites }) => {
           <p>{requisites.bank.name}</p>
         </div>
       ) : (
-        <di>Реквізити не доступні</di>
+        <div>Реквізити не доступні</div>
       )}
 
     </StyledBlockContainer>
