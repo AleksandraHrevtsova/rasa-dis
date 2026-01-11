@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { ThemeContext } from '../contexts/ThemeContext';
 import FunctionsContext from "../contexts/FunctionsContext";
 
 import { useTranslation } from 'react-i18next';
@@ -35,7 +34,6 @@ const StyledPageTitle = styled.h2`
 `;
 
 export const Header = (props) => {
-  const { colors, layout } = useContext(ThemeContext);
   const { t } = useTranslation();
   const { goBack } = useContext(FunctionsContext);
   return (
@@ -52,8 +50,6 @@ export const Header = (props) => {
           <TextButton
             label={t('back')}
             handleClick={goBack}
-            colors={colors}
-            layout={layout}
           />
         )}
         {props.pagetitle && (

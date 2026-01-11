@@ -1,9 +1,10 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { ThemeContext } from '../contexts/ThemeContext';
 import styled from 'styled-components';
 import Sidebar from 'react-sidebar';
 
 import LeftSidebar from "../components/LeftSidebar";
+import { useUI } from '../contexts/UIContext';
 
 const MainContent = styled.div`
   height: 100%;
@@ -13,8 +14,9 @@ const MainContent = styled.div`
 const withLeftSideBar = (Component) => {
   const WrappedComponent = (props) => {
     const { colors, layout } = useContext(ThemeContext);
+    const { isSidebarOpen, toggleSidebar } = useUI();
 
-    const [sidebarOpen, setSidebarOpen] = useState(true);
+    const handleToggleSidebar = () => toggleSidebar();
 
     const sideBarStyles = {
       sidebar: {
@@ -36,17 +38,15 @@ const withLeftSideBar = (Component) => {
 
     return (
       <Sidebar
-        sidebar={<LeftSidebar setSidebarOpen={() => {
-          setSidebarOpen(!sidebarOpen);
-        }}/>}
-        open={sidebarOpen}
+        sidebar={<LeftSidebar toggleSidebar={handleToggleSidebar}/>}
+        open={isSidebarOpen}
         styles={sideBarStyles}
       >
         <MainContent $backgroundcolor={colors.pageBg}>
           <Component
             {...props}
-            sidebarOpen={sidebarOpen}
-            toggleSideBar={() => setSidebarOpen(!sidebarOpen)}
+            sidebarOpen={isSidebarOpen}
+            toggleSideBar={handleToggleSidebar}
           />
         </MainContent>
       </Sidebar>

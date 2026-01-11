@@ -71,7 +71,9 @@ const StyledLangButton = styled.button`
   background: ${({ $isSelected, $btnBg, $btnColor }) => $isSelected ? $btnColor : $btnBg};
 `;
 
-export const LanguageButton = ({ label, isSelected, handleClick, colors, layout }) => {
+export const LanguageButton = ({ label, isSelected, handleClick }) => {
+  const { colors, layout } = useContext(ThemeContext);
+
   return (
     <StyledLangButton 
       $isSelected={isSelected}
@@ -89,7 +91,9 @@ export const LanguageButton = ({ label, isSelected, handleClick, colors, layout 
   );
 };
 
-export const TextButton = ({ label, handleClick, colors, layout, isDisable }) => {
+export const TextButton = ({ label, handleClick, isDisable }) => {
+  const { colors, layout } = useContext(ThemeContext);
+
   return (
     <StyledLangButton 
       $btnBg={colors.sidebarBg}
@@ -107,7 +111,9 @@ export const TextButton = ({ label, handleClick, colors, layout, isDisable }) =>
   );
 };
 
-export const LogoutButton = ({ label, isSelected, handleClick, colors, layout }) => {
+export const LogoutButton = ({ label, isSelected, handleClick }) => {
+  const { colors, layout } = useContext(ThemeContext);
+
   return (
     <StyledLangButton 
       $isSelected={isSelected}

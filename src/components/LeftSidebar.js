@@ -1,9 +1,8 @@
 import { useContext, useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router';
+import { useLocation, Link } from 'react-router';
 
-import AppContext from '../contexts/AppContext';
 import { ThemeContext } from '../contexts/ThemeContext';
 
 import logo from '../images/logo.png';
@@ -137,13 +136,12 @@ const MenuItem = ({ to, labelTag, icon, currentPath, ...rest }) => {
 const getMenuItemsDependOnRole = () => routesData;
 
 const LeftSidebar = (props) => {
-  const appContext = useContext(AppContext);
   const { colors, layout } = useContext(ThemeContext);
   const [appVersion] = useState(manifest.appVersion);
   const [logoName] = useState(manifest.short_name);
   const [menuItems, setMenuItems] = useState(getMenuItemsDependOnRole());
 
-  const [currentPath] = useState(appContext.location.pathname);
+  const { pathname } = useLocation();
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -163,12 +161,12 @@ const LeftSidebar = (props) => {
           <Logo src={logo} alt={logoName} />
           <MenuButton 
             type={menuBtnTypes.close}
-            handleClick={props.setSidebarOpen}
+            handleClick={props.toggleSidebar}
           />
         </LogoContainer>
         <StyledMenuContainer>
           {menuItems.map((props) => 
-            (<MenuItem key={props.to} currentPath={currentPath} {...props} />)
+            (<MenuItem key={props.to} currentPath={pathname} {...props} />)
           )}
         </StyledMenuContainer>
         <LanguageToggle colors={colors} layout={layout}/>
@@ -176,7 +174,16 @@ const LeftSidebar = (props) => {
         <StyledVersionLabel>{t('app_version')}: {appVersion}</StyledVersionLabel>
       </Sidebar>
     );
-  }, [appVersion, colors, layout, menuItems, currentPath, logoName, t, props.setSidebarOpen]);
+  }, [
+    appVersion, 
+    logoName, 
+    colors, 
+    layout, 
+    t, 
+    menuItems, 
+    pathname, 
+    props.toggleSidebar
+  ]);
 };
 
 export default LeftSidebar;
