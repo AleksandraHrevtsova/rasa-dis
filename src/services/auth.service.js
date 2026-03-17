@@ -1,5 +1,13 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { auth } from '../firebase';
+import { setToken, clearToken } from '../auth/tokenManager';
+import api from '../api/client';
+
+const endpoints = {
+  login: '/api/auth/login',
+  logout: '/api/auth/logout',
+  me: '/api/auth/me'
+}
 
 function mapAuthError(error) {
   const code = error?.code;
@@ -31,11 +39,14 @@ function mapAuthError(error) {
   }
 };
 
-
-export async function login(email, password) {
+export const login = async(email, password) => {
   try {
     const cred = await signInWithEmailAndPassword(auth, email, password);
-    return { user: cred.user, error: null };
+    const token = await cred.user.getIdToken();
+    setToken(token);
+
+    const { data } = await api.post(endpoints.login);
+    return data;
   } catch (err) {
     console.error('Auth error:', err.code);
     return {
@@ -43,4 +54,16 @@ export async function login(email, password) {
       error: mapAuthError(err),
     };
   }
-}
+};
+
+export const logout = async () => {
+  await api.post(endpoints.logout);
+  await signOut(auth);
+  clearToken();
+  window.location.href = '/login';
+};
+
+export const getMe = async () => {
+  const { data } = await api.get(endpoints.me);
+  return data;
+};

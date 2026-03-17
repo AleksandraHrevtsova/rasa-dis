@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router';
 
 import { ThemeContext } from '../contexts/ThemeContext';
 import styled from 'styled-components';
-import { login } from "../utils/login";
+import { login } from "../services/auth.service";
 import { useTranslation } from 'react-i18next';
 
 import { useNotify } from '../hooks/useNotify';
@@ -55,7 +55,7 @@ const StyledAuthTitle = styled.h2`
 `;
 
 const Login = () => {
-  const { colors, layout } = useContext(ThemeContext);
+  const { colors } = useContext(ThemeContext);
 
   const notify = useNotify();
 
@@ -134,8 +134,6 @@ const Login = () => {
         <TextButton
           label={t('login_click')}
           handleClick={handleSubmit}
-          colors={colors}
-          layout={layout}
           isDisable={!isCanSubmit}
         />
 

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { LogoutButton } from './Buttons';
-import { logout } from '../utils/logout';
+import { logout } from '../services/auth.service';
 
 const StyledContainer = styled.div`
   display: flex;
